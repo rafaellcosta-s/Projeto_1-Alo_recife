@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alô Recife</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="totem" id="totem">
+
+    <!-- Faixa colorida do topo (aparece em todas as telas) -->
+    <img class="faixa" src="assets/faixa-topo.png" alt="">
+
+    <main class="conteudo">
+
+      <!-- ========== TELA INICIAL ========== -->
+      <section class="tela ativa" id="tela-inicial">
+        <img class="logo" src="assets/logo.png" alt="Alô Recife">
+        <p class="tagline" data-i18n="tagline"></p>
+
+        <div class="botoes botoes-inicio">
+          <div class="linha"><button class="btn btn-largo" data-cor="vermelho" id="btn-onde-ir" data-i18n="ondeIr"></button></div>
+          <div class="linha"><button class="btn btn-largo" data-cor="verde" id="btn-idiomas" data-i18n="idiomas"></button></div>
+          <div class="linha"><button class="btn btn-largo" data-cor="laranja" id="btn-sobre" data-i18n="sobre"></button></div>
+        </div>
+      </section>
+
+      <!-- ========== SELEÇÃO DE IDIOMA ========== -->
+      <section class="tela" id="tela-idioma">
+        <img class="logo" src="assets/logo.png" alt="Alô Recife">
+        <h2 class="titulo-centro" data-i18n="selecioneIdioma"></h2>
+
+        <div class="botoes">
+          <div class="linha dupla">
+            <button class="btn" data-cor="vermelho" data-idioma="pt">Português</button>
+            <button class="btn" data-cor="verde" data-idioma="en">English</button>
+          </div>
+          <div class="linha dupla">
+            <button class="btn" data-cor="laranja" data-idioma="es">Español</button>
+            <button class="btn" data-cor="azul" data-idioma="de">Deutsch</button>
+          </div>
+          <div class="linha"><button class="btn btn-largo" data-cor="cinza" id="idioma-voltar" data-i18n="voltarInicio"></button></div>
+        </div>
+      </section>
+
+      <!-- ========== SOBRE NÓS ========== -->
+      <section class="tela" id="tela-sobre">
+        <img class="logo" src="assets/logo.png" alt="Alô Recife">
+
+        <div class="pad texto-sobre">
+          <!-- TROQUE pelo texto do grupo -->
+          <p data-i18n="sobreP1">Aqui vai o texto de apresentação do projeto Alô Recife: quem somos, qual é a proposta e como o roteiro é escolhido para cada visitante.</p>
+          <p data-i18n="sobreP2">Use um parágrafo para cada ideia. O texto se ajusta ao espaço da tela.</p>
+        </div>
+
+        <div class="botoes botoes-base">
+          <div class="linha"><button class="btn btn-medio so-esq" data-cor="laranja" id="sobre-voltar" data-i18n="voltar"></button></div>
+        </div>
+      </section>
+
+      <!-- ========== QUESTIONÁRIO (as 6 perguntas usam esta mesma tela) ========== -->
+      <section class="tela" id="tela-quiz">
+        <div class="pad">
+          <div class="progresso"><div class="progresso-fill" id="progresso-fill"></div></div>
+          <p class="quiz-contador" id="quiz-contador"></p>
+          <h2 class="quiz-pergunta" id="quiz-pergunta"></h2>
+          <p class="quiz-subtitulo" id="quiz-subtitulo"></p>
+        </div>
+
+        <div class="botoes botoes-base">
+          <div class="linha dupla">
+            <button class="btn" data-cor="vermelho" data-alt="0"></button>
+            <button class="btn" data-cor="verde" data-alt="1"></button>
+          </div>
+          <div class="linha dupla">
+            <button class="btn" data-cor="laranja" data-alt="2"></button>
+            <button class="btn" data-cor="azul" data-alt="3"></button>
+          </div>
+          <div class="linha"><button class="btn btn-largo" data-cor="cinza" id="quiz-voltar"></button></div>
+        </div>
+      </section>
+
+      <!-- ========== RESULTADO ========== -->
+      <section class="tela tela-resultado" id="tela-resultado">
+        <div class="resultado-corpo pad">
+          <div class="res-topo">
+            <span class="res-rotulo" data-i18n="seuPasseio"></span>
+          </div>
+
+          <div class="res-titulo-linha">
+            <div class="res-titulos">
+              <h2 class="res-titulo" id="res-titulo"></h2>
+              <p class="res-subtitulo" id="res-subtitulo"></p>
+            </div>
+            <img class="res-sombrinha" src="assets/sombrinha-frevo.png" alt="Sombrinha de frevo">
+          </div>
+
+          <div class="res-tags" id="res-tags" aria-label="Características do destino"></div>
+
+          <p class="res-ingresso-linha">
+            <strong data-i18n="ingressoLabel">Ingresso:</strong>
+            <span id="res-ingresso"></span>
+          </p>
+          <p class="res-aviso-ingresso" id="res-aviso-ingresso"></p>
+
+          <h3 class="res-horarios-titulo" data-i18n="horarioFuncionamento">Horário de funcionamento:</h3>
+          <div class="res-horarios-caixa">
+            <p id="res-horarios"></p>
+          </div>
+
+          <div class="res-rota">
+            <h3 class="res-rota-titulo" data-i18n="rotaCta">Confira a rota para seu destino</h3>
+            <div class="qr-moldura">
+              <div id="qrcode" aria-label="QR Code com a rota no Google Maps"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="botoes botoes-base resultado-rodape">
+          <div class="linha">
+            <button class="btn btn-largo" data-cor="cinza" id="btn-encerrar" data-i18n="encerrar"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FEEDBACK ========== -->
+      <section class="tela" id="tela-feedback">
+        <img class="logo" src="assets/logo.png" alt="Alô Recife">
+        <h2 class="titulo-esq pad" data-i18n="feedbackTitulo"></h2>
+
+        <div class="botoes">
+          <div class="linha dupla">
+            <button class="btn" data-cor="vermelho" data-feedback="muito-positiva" data-i18n="muitoPositiva"></button>
+            <button class="btn" data-cor="verde" data-feedback="positiva" data-i18n="positiva"></button>
+          </div>
+          <div class="linha dupla">
+            <button class="btn" data-cor="laranja" data-feedback="neutra" data-i18n="neutra"></button>
+            <button class="btn" data-cor="azul" data-feedback="negativa" data-i18n="negativa"></button>
+          </div>
+          <div class="linha dupla">
+            <button class="btn" data-cor="cinza" data-feedback="muito-negativa" data-i18n="muitoNegativa"></button>
+            <button class="btn" data-cor="bege" data-feedback="nao-avaliou" data-i18n="naoAvaliar"></button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Faixa colorida de baixo -->
+    <img class="faixa" src="assets/faixa-base.png" alt="">
+  </div>
+
+  <!-- Biblioteca local: o QR Code é gerado sem internet. O celular precisa de internet para abrir a rota no Google Maps. -->
+  <script src="assets/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
