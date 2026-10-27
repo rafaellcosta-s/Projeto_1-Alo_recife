@@ -31,7 +31,7 @@ A geração do QR Code usa uma biblioteca local em `assets/qrcode.min.js` e não
 
 ## O que ainda é provisório
 
-- A pergunta 1 acompanha o Figma mais recente (“Qual região de Recife?”). As perguntas 2 a 6 são exemplos traduzidos e devem ser substituídas quando o grupo fechar as perguntas definitivas.
+- A pergunta 1 acompanha o Figma mais recente (“Qual região de Recife?”). As perguntas 2 a 6 são exemplos traduzidos e devem ser substituídas quando o grupo fechar as perguntas definitivas. A pergunta 7 (acessibilidade, Sim/Não) foi adicionada a partir do README do projeto; por enquanto ela não altera o roteiro, porque os roteiros ainda não têm dados de acessibilidade.
 - Os roteiros e pesos de pontuação são exemplos de demonstração, ainda precisam ser validados pela pesquisa do grupo.
 - Os valores de ingresso mostrados para o Paço do Frevo reproduzem o texto do protótipo visual e **não foram verificados como informação atual**. Confirmem preços, horários e condições antes da apresentação.
 - `assets/sombrinha-frevo.svg` é uma arte provisória simples. Substituam pelo arquivo definitivo da equipe, mantendo o mesmo nome ou atualizando o caminho em `index.html`.

@@ -327,6 +327,13 @@ const PERGUNTAS = [
       { texto: { pt: "Moderado", en: "Moderate", es: "Moderado", de: "Moderat" }, pontos: { arte: 2 } },
       { texto: { pt: "Tanto faz", en: "Doesn't matter", es: "Me da igual", de: "Egal" }, pontos: {} }
     ]
+  },
+  {
+    texto: { pt: "Você precisa de acessibilidade?", en: "Do you need accessibility features?", es: "¿Necesitas accesibilidad?", de: "Brauchst du Barrierefreiheit?" },
+    alternativas: [
+      { texto: { pt: "Sim", en: "Yes", es: "Sí", de: "Ja" }, pontos: {}, acessibilidade: true },
+      { texto: { pt: "Não", en: "No", es: "No", de: "Nein" }, pontos: {} }
+    ]
   }
 ];
 
@@ -382,6 +389,9 @@ function mostrarPergunta() {
   document.querySelectorAll("[data-alt]").forEach((botao) => {
     const alternativa = pergunta.alternativas[Number(botao.dataset.alt)];
     botao.textContent = alternativa ? txt(alternativa.texto) : "";
+    // Perguntas com menos de 4 opções (ex.: Sim/Não) escondem os botões sem uso.
+    botao.style.visibility = alternativa ? "visible" : "hidden";
+    botao.style.pointerEvents = alternativa ? "auto" : "none";
   });
 
   $("#quiz-voltar").textContent = tr(indice === 0 ? "voltarInicio" : "voltar");
