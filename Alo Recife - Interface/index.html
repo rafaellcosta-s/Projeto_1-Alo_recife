@@ -32,7 +32,7 @@
         <img class="logo" src="assets/logo.png" alt="Alô Recife">
         <h2 class="titulo-centro" data-i18n="selecioneIdioma"></h2>
 
-        <div class="botoes">
+        <div class="botoes botoes-base">
           <div class="linha dupla">
             <button class="btn" data-cor="vermelho" data-idioma="pt">Português</button>
             <button class="btn" data-cor="verde" data-idioma="en">English</button>
@@ -47,20 +47,27 @@
 
       <!-- ========== SOBRE NÓS ========== -->
       <section class="tela" id="tela-sobre">
-        <img class="logo" src="assets/logo.png" alt="Alô Recife">
+        <div class="sobre-corpo">
+          <img class="logo" src="assets/logo.png" alt="Alô Recife">
 
-        <div class="pad texto-sobre">
-          <!-- TROQUE pelo texto do grupo -->
-          <p data-i18n="sobreP1">Aqui vai o texto de apresentação do projeto Alô Recife: quem somos, qual é a proposta e como o roteiro é escolhido para cada visitante.</p>
-          <p data-i18n="sobreP2">Use um parágrafo para cada ideia. O texto se ajusta ao espaço da tela.</p>
+          <div class="pad texto-sobre">
+            <p data-i18n="sobreP1"></p>
+            <p data-i18n="sobreP2"></p>
+            <p data-i18n="sobreP3"></p>
+
+            <!-- Espaço reservado para inserir a foto da equipe posteriormente. -->
+            <div class="equipe-foto" aria-label="Espaço reservado para a foto da equipe">
+              <span data-i18n="fotoEquipe">Foto da equipe</span>
+            </div>
+          </div>
         </div>
 
-        <div class="botoes botoes-base">
-          <div class="linha"><button class="btn btn-medio so-esq" data-cor="laranja" id="sobre-voltar" data-i18n="voltar"></button></div>
+        <div class="botoes botoes-base sobre-botoes">
+          <div class="linha"><button class="btn btn-largo" data-cor="cinza" id="sobre-voltar" data-i18n="voltar"></button></div>
         </div>
       </section>
 
-      <!-- ========== QUESTIONÁRIO (as perguntas usam esta mesma tela) ========== -->
+      <!-- ========== QUESTIONÁRIO (as 6 perguntas usam esta mesma tela) ========== -->
       <section class="tela" id="tela-quiz">
         <div class="pad">
           <div class="progresso"><div class="progresso-fill" id="progresso-fill"></div></div>
@@ -99,15 +106,9 @@
 
           <div class="res-tags" id="res-tags" aria-label="Características do destino"></div>
 
-          <p class="res-ingresso-linha">
-            <strong data-i18n="ingressoLabel">Ingresso:</strong>
-            <span id="res-ingresso"></span>
-          </p>
-          <p class="res-aviso-ingresso" id="res-aviso-ingresso"></p>
-
-          <h3 class="res-horarios-titulo" data-i18n="horarioFuncionamento">Horário de funcionamento:</h3>
-          <div class="res-horarios-caixa">
-            <p id="res-horarios"></p>
+          <h3 class="res-descricao-titulo" data-i18n="sobreDestino">Sobre o destino:</h3>
+          <div class="res-descricao-caixa">
+            <p id="res-descricao"></p>
           </div>
 
           <div class="res-rota">
@@ -126,26 +127,33 @@
       </section>
 
       <!-- ========== FEEDBACK ========== -->
-      <section class="tela" id="tela-feedback">
+      <section class="tela" id="tela-feedback" aria-label="Avaliação da experiência">
         <img class="logo" src="assets/logo.png" alt="Alô Recife">
-        <h2 class="titulo-esq pad" data-i18n="feedbackTitulo"></h2>
+        <h2 class="feedback-titulo pad" data-i18n="feedbackTitulo"></h2>
 
-        <div class="botoes">
-          <div class="linha dupla">
-            <button class="btn" data-cor="vermelho" data-feedback="muito-positiva" data-i18n="muitoPositiva"></button>
-            <button class="btn" data-cor="verde" data-feedback="positiva" data-i18n="positiva"></button>
+        <div class="feedback-area">
+          <div class="feedback-grupo feedback-grupo-1">
+            <span class="feedback-conexao feedback-conexao-esquerda" aria-hidden="true"></span>
+            <button class="feedback-botao" type="button" data-feedback="1" aria-label="1 — Muito Insatisfeito(a)">1</button>
           </div>
-          <div class="linha dupla">
-            <button class="btn" data-cor="laranja" data-feedback="neutra" data-i18n="neutra"></button>
-            <button class="btn" data-cor="azul" data-feedback="negativa" data-i18n="negativa"></button>
+          <div class="feedback-grupo feedback-grupo-2">
+            <span class="feedback-conexao feedback-conexao-l feedback-conexao-l-esq" aria-hidden="true"></span>
+            <button class="feedback-botao" type="button" data-feedback="2" aria-label="2 — Insatisfeito(a)">2</button>
           </div>
-          <div class="linha dupla">
-            <button class="btn" data-cor="cinza" data-feedback="muito-negativa" data-i18n="muitoNegativa"></button>
-            <button class="btn" data-cor="bege" data-feedback="nao-avaliou" data-i18n="naoAvaliar"></button>
+          <div class="feedback-grupo feedback-grupo-3">
+            <span class="feedback-conexao feedback-conexao-l feedback-conexao-l-dir" aria-hidden="true"></span>
+            <button class="feedback-botao" type="button" data-feedback="3" aria-label="3 — Satisfeito(a)">3</button>
+          </div>
+          <div class="feedback-grupo feedback-grupo-4">
+            <span class="feedback-conexao feedback-conexao-direita" aria-hidden="true"></span>
+            <button class="feedback-botao" type="button" data-feedback="4" aria-label="4 — Muito Satisfeito(a)">4</button>
+          </div>
+          <div class="feedback-grupo feedback-grupo-pular">
+            <span class="feedback-conexao feedback-conexao-pular" aria-hidden="true"></span>
+            <button class="feedback-pular" type="button" data-feedback="skip" data-i18n="naoAvaliar">Não Avaliar</button>
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- Faixa colorida de baixo -->
@@ -154,6 +162,7 @@
 
   <!-- Biblioteca local: o QR Code é gerado sem internet. O celular precisa de internet para abrir a rota no Google Maps. -->
   <script src="assets/qrcode.min.js"></script>
+  <script src="destinos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

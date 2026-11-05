@@ -1,7 +1,6 @@
 /* =====================================================
-   ALÔ RECIFE — INTERFACE E LÓGICA DO PROTÓTIPO
-   Textos, perguntas e roteiros de exemplo podem ser ajustados
-   depois da pesquisa e da validação do grupo.
+   ALÔ RECIFE — INTERFACE E LÓGICA DO TOTEMFONE
+   Perguntas e critérios de recomendação definidos pela equipe.
    ===================================================== */
 
 const TEMPO_INATIVIDADE = 60000;
@@ -14,325 +13,134 @@ const LANG_HTML = { pt: "pt-BR", en: "en", es: "es", de: "de" };
 const TEXTOS = {
   pt: {
     tagline: "Descubra Recife do seu jeito!",
-    sobreP1: "Aqui vai o texto de apresentação do projeto Alô Recife: quem somos, qual é a proposta e como o roteiro é escolhido para cada visitante.",
-    sobreP2: "Use um parágrafo para cada ideia. O texto se ajusta ao espaço da tela.",
+    sobreP1: "Nós somos o Alô Recife! Uma equipe de estudantes da CESAR School dos cursos de Ciência da Computação e Design, reunidos para a disciplina de Projetos 1. Juntos, desenvolvemos o Totenfone: uma nova forma de enxergar e explorar Recife, desde os pontos turísticos mais famosos até os cantinhos pouco conhecidos.",
+    sobreP2: "O projeto recebeu esse nome carinhoso por reaproveitar orelhões que já não estão mais em funcionamento. A partir de algumas perguntas simples, o Totenfone indica o passeio ideal para o perfil do usuário — sendo perfeito tanto para quem está visitando quanto para os próprios moradores da cidade.",
+    sobreP3: "Combinando o mundo físico e o digital, nós do Alô Recife buscamos valorizar a cultura e o turismo local, oferecendo uma experiência única e interativa de reconexão com a nossa cidade.",
+    fotoEquipe: "Espaço reservado para a foto da equipe",
     ondeIr: "Para onde ir hoje?", idiomas: "Idiomas", sobre: "Sobre nós",
     selecioneIdioma: "Selecione seu idioma",
     voltarInicio: "Voltar à tela inicial", voltar: "Voltar",
     contador: "Pergunta {n} de {total}",
     seuPasseio: "Seu passeio ideal",
-    ingressoLabel: "Ingresso:",
-    horarioFuncionamento: "Horário de funcionamento:",
     rotaCta: "Confira a rota para seu destino",
     encerrar: "Encerrar",
-    feedbackTitulo: "Como foi sua experiência com o totemfone?",
-    muitoPositiva: "Muito positiva", positiva: "Positiva", neutra: "Neutra",
-    negativa: "Negativa", muitoNegativa: "Muito negativa", naoAvaliar: "Não avaliar"
+    feedbackTitulo: "Como você avalia sua experiência com o totenfone?", naoAvaliar: "Não Avaliar", sobreDestino: "Sobre o destino:"
   },
   en: {
     tagline: "Discover Recife your way!",
-    sobreP1: "This is where the Alô Recife project introduction goes: who we are, what the proposal is and how the itinerary is chosen for each visitor.",
-    sobreP2: "Use one paragraph for each idea. The text adjusts to the screen space.",
+    sobreP1: "We are Alô Recife! A team of CESAR School students from the Computer Science and Design programs, brought together for the Projects 1 course. Together, we developed Totenfone: a new way to see and explore Recife, from its best-known tourist attractions to its lesser-known corners.",
+    sobreP2: "The project received this affectionate name because it reuses telephone booths that are no longer in service. By answering a few simple questions, Totenfone recommends an outing that suits each user's profile — ideal for both visitors and the city's own residents.",
+    sobreP3: "By combining the physical and digital worlds, we at Alô Recife aim to celebrate local culture and tourism, offering a unique, interactive experience that helps people reconnect with our city.",
+    fotoEquipe: "Space reserved for the team photo",
     ondeIr: "Where to go today?", idiomas: "Languages", sobre: "About us",
     selecioneIdioma: "Select your language",
     voltarInicio: "Back to home screen", voltar: "Back",
     contador: "Question {n} of {total}",
     seuPasseio: "Your ideal tour",
-    ingressoLabel: "Admission:",
-    horarioFuncionamento: "Opening hours:",
     rotaCta: "Check the route to your destination",
     encerrar: "Finish",
-    feedbackTitulo: "How was your experience with the Totemfone?",
-    muitoPositiva: "Very positive", positiva: "Positive", neutra: "Neutral",
-    negativa: "Negative", muitoNegativa: "Very negative", naoAvaliar: "Skip"
+    feedbackTitulo: "How would you rate your Totemfone experience?", naoAvaliar: "Skip", sobreDestino: "About this destination:"
   },
   es: {
     tagline: "¡Descubre Recife a tu manera!",
-    sobreP1: "Aquí va el texto de presentación del proyecto Alô Recife: quiénes somos, cuál es la propuesta y cómo se elige el itinerario para cada visitante.",
-    sobreP2: "Usa un párrafo para cada idea. El texto se ajusta al espacio de la pantalla.",
+    sobreP1: "¡Somos Alô Recife! Un equipo de estudiantes de CESAR School de las carreras de Ciencias de la Computación y Diseño, reunidos para la asignatura Proyectos 1. Juntos desarrollamos Totenfone: una nueva forma de ver y explorar Recife, desde sus puntos turísticos más conocidos hasta sus rincones menos conocidos.",
+    sobreP2: "El proyecto recibió este nombre cariñoso porque reutiliza teléfonos públicos que ya no están en funcionamiento. A partir de unas preguntas sencillas, Totenfone recomienda un paseo adecuado al perfil de cada usuario, tanto para quienes visitan la ciudad como para sus propios habitantes.",
+    sobreP3: "Al combinar el mundo físico y el digital, en Alô Recife buscamos valorar la cultura y el turismo local, ofreciendo una experiencia única e interactiva para reconectar con nuestra ciudad.",
+    fotoEquipe: "Espacio reservado para la foto del equipo",
     ondeIr: "¿A dónde ir hoy?", idiomas: "Idiomas", sobre: "Sobre nosotros",
     selecioneIdioma: "Selecciona tu idioma",
     voltarInicio: "Volver a la pantalla de inicio", voltar: "Volver",
     contador: "Pregunta {n} de {total}",
     seuPasseio: "Tu paseo ideal",
-    ingressoLabel: "Entrada:",
-    horarioFuncionamento: "Horario de funcionamiento:",
     rotaCta: "Consulta la ruta a tu destino",
     encerrar: "Finalizar",
-    feedbackTitulo: "¿Cómo fue tu experiencia con el Totemfone?",
-    muitoPositiva: "Muy positiva", positiva: "Positiva", neutra: "Neutra",
-    negativa: "Negativa", muitoNegativa: "Muy negativa", naoAvaliar: "No evaluar"
+    feedbackTitulo: "¿Cómo valoras tu experiencia con el Totemfone?", naoAvaliar: "No evaluar", sobreDestino: "Sobre el destino:"
   },
   de: {
     tagline: "Entdecke Recife auf deine Art!",
-    sobreP1: "Hier steht der Vorstellungstext des Projekts Alô Recife: wer wir sind, was unser Vorschlag ist und wie die Route für jeden Besucher ausgewählt wird.",
-    sobreP2: "Verwende für jede Idee einen eigenen Absatz. Der Text passt sich dem Platz auf dem Bildschirm an.",
+    sobreP1: "Wir sind Alô Recife! Ein Team von Studierenden der CESAR School aus den Studiengängen Informatik und Design, das im Kurs Projekte 1 zusammengekommen ist. Gemeinsam haben wir Totenfone entwickelt: eine neue Art, Recife zu entdecken — von den bekanntesten Sehenswürdigkeiten bis zu weniger bekannten Ecken.",
+    sobreP2: "Der liebevolle Name entstand, weil wir öffentliche Telefonzellen wiederverwenden, die nicht mehr in Betrieb sind. Mit einigen einfachen Fragen empfiehlt Totenfone einen Ausflug, der zum Profil der Nutzerinnen und Nutzer passt — sowohl für Besuchende als auch für die Einwohner der Stadt.",
+    sobreP3: "Indem wir die physische und die digitale Welt verbinden, möchten wir bei Alô Recife die lokale Kultur und den Tourismus stärken und ein einzigartiges, interaktives Erlebnis schaffen, das Menschen wieder mit unserer Stadt verbindet.",
+    fotoEquipe: "Platzhalter für das Teamfoto",
     ondeIr: "Wohin heute?", idiomas: "Sprachen", sobre: "Über uns",
     selecioneIdioma: "Wähle deine Sprache",
     voltarInicio: "Zurück zum Startbildschirm", voltar: "Zurück",
     contador: "Frage {n} von {total}",
     seuPasseio: "Dein idealer Ausflug",
-    ingressoLabel: "Eintritt:",
-    horarioFuncionamento: "Öffnungszeiten:",
     rotaCta: "Route zum Ziel ansehen",
     encerrar: "Beenden",
-    feedbackTitulo: "Wie war deine Erfahrung mit dem Totemfone?",
-    muitoPositiva: "Sehr positiv", positiva: "Positiv", neutra: "Neutral",
-    negativa: "Negativ", muitoNegativa: "Sehr negativ", naoAvaliar: "Nicht bewerten"
+    feedbackTitulo: "Wie bewertest du deine Erfahrung mit dem Totemfone?", naoAvaliar: "Nicht bewerten", sobreDestino: "Über das Ziel:"
   }
 };
 
 /* =====================================================
-   ROTEIROS DE EXEMPLO
-   O ponto em destaque preenche a nova tela de resultados;
-   todas as paradas são usadas para montar o link do Google Maps.
-   Confirmem preços e horários durante a pesquisa do grupo.
-   ===================================================== */
-const ROTEIROS = [
-  {
-    id: "historico",
-    nome: {
-      pt: "Recife Antigo e Centro Histórico",
-      en: "Old Recife and Historic Center",
-      es: "Recife Antiguo y Centro Histórico",
-      de: "Altstadt und historisches Zentrum von Recife"
-    },
-    tipo: {
-      pt: "Histórico, a pé, ideal para curiosos",
-      en: "Historical, on foot, ideal for the curious",
-      es: "Histórico, a pie, ideal para curiosos",
-      de: "Historisch, zu Fuß, ideal für Neugierige"
-    },
-    porque: {
-      pt: "Reúne ruas e prédios históricos, museus e a cultura do frevo em um trajeto curto.",
-      en: "Brings together historic streets and buildings, museums and frevo culture on a short route.",
-      es: "Reúne calles y edificios históricos, museos y la cultura del frevo en un recorrido corto.",
-      de: "Verbindet historische Straßen und Gebäude, Museen und die Frevo-Kultur auf einer kurzen Route."
-    },
-    destino: { pt: "Paço do Frevo", en: "Paço do Frevo", es: "Paço do Frevo", de: "Paço do Frevo" },
-    subtituloDestino: {
-      pt: "Centro Histórico - Museu",
-      en: "Historic Center - Museum",
-      es: "Centro Histórico - Museo",
-      de: "Historisches Zentrum - Museum"
-    },
-    tags: [
-      { pt: "cultural", en: "cultural", es: "cultural", de: "kulturell" },
-      { pt: "histórico", en: "historic", es: "histórico", de: "historisch" },
-      { pt: "ambiente fechado", en: "indoor", es: "espacio cerrado", de: "Innenbereich" }
-    ],
-    ingresso: {
-      pt: "R$10,00 / R$5,00 (meia entrada)",
-      en: "R$10.00 / R$5.00 (reduced admission)",
-      es: "R$10,00 / R$5,00 (entrada reducida)",
-      de: "R$10,00 / R$5,00 (ermäßigter Eintritt)"
-    },
-    notaIngresso: {
-      pt: "*Essa informação pode variar de acordo com a data; confirme antes da visita.",
-      en: "*This information may vary by date; please confirm before visiting.",
-      es: "*Esta información puede variar según la fecha; confirma antes de la visita.",
-      de: "*Diese Angaben können je nach Datum variieren; bitte vor dem Besuch bestätigen."
-    },
-    horarios: {
-      pt: "Horários a confirmar após a pesquisa do grupo.",
-      en: "Opening hours to be confirmed after the group's research.",
-      es: "Horario por confirmar después de la investigación del grupo.",
-      de: "Öffnungszeiten werden nach der Recherche der Gruppe bestätigt."
-    },
-    paradas: ["Marco Zero", "Rua do Bom Jesus", "Paço do Frevo", "Cais do Sertão"]
-  },
-  {
-    id: "arte",
-    nome: {
-      pt: "Arte e Cultura",
-      en: "Art and Culture",
-      es: "Arte y Cultura",
-      de: "Kunst und Kultur"
-    },
-    tipo: {
-      pt: "Arte e cultura, ideal para casais e grupos pequenos",
-      en: "Art and culture, ideal for couples and small groups",
-      es: "Arte y cultura, ideal para parejas y grupos pequeños",
-      de: "Kunst und Kultur, ideal für Paare und kleine Gruppen"
-    },
-    porque: {
-      pt: "Combina ateliês e museus para quem quer ver arte com calma.",
-      en: "Combines studios and museums for those who want to see art at a relaxed pace.",
-      es: "Combina talleres y museos para quien quiere ver arte con calma.",
-      de: "Verbindet Ateliers und Museen für alle, die Kunst in Ruhe erleben möchten."
-    },
-    destino: {
-      pt: "Oficina Francisco Brennand",
-      en: "Oficina Francisco Brennand",
-      es: "Oficina Francisco Brennand",
-      de: "Oficina Francisco Brennand"
-    },
-    subtituloDestino: {
-      pt: "Várzea - Arte e cultura",
-      en: "Várzea - Art and culture",
-      es: "Várzea - Arte y cultura",
-      de: "Várzea - Kunst und Kultur"
-    },
-    tags: [
-      { pt: "cultural", en: "cultural", es: "cultural", de: "kulturell" },
-      { pt: "arte", en: "art", es: "arte", de: "Kunst" },
-      { pt: "ambiente aberto", en: "outdoors", es: "al aire libre", de: "im Freien" }
-    ],
-    ingresso: {
-      pt: "A confirmar após a pesquisa",
-      en: "To be confirmed after research",
-      es: "Por confirmar tras la investigación",
-      de: "Nach der Recherche zu bestätigen"
-    },
-    notaIngresso: {
-      pt: "*Valores e condições de visita serão confirmados pelo grupo.",
-      en: "*Admission prices and visitor information will be confirmed by the group.",
-      es: "*El grupo confirmará los precios y las condiciones de visita.",
-      de: "*Eintrittspreise und Besuchsbedingungen werden von der Gruppe bestätigt."
-    },
-    horarios: {
-      pt: "Horários a confirmar após a pesquisa do grupo.",
-      en: "Opening hours to be confirmed after the group's research.",
-      es: "Horario por confirmar después de la investigación del grupo.",
-      de: "Öffnungszeiten werden nach der Recherche der Gruppe bestätigt."
-    },
-    paradas: ["Oficina Francisco Brennand", "Instituto Ricardo Brennand", "Museu do Estado de Pernambuco"]
-  },
-  {
-    id: "natureza",
-    nome: {
-      pt: "Praia e Parques",
-      en: "Beach and Parks",
-      es: "Playa y Parques",
-      de: "Strand und Parks"
-    },
-    tipo: {
-      pt: "Ao ar livre, ideal para famílias",
-      en: "Outdoors, ideal for families",
-      es: "Al aire libre, ideal para familias",
-      de: "Im Freien, ideal für Familien"
-    },
-    porque: {
-      pt: "Alterna áreas verdes e orla, com tempo livre para descansar.",
-      en: "Alternates green areas and the waterfront, with free time to rest.",
-      es: "Alterna zonas verdes y el paseo marítimo, con tiempo libre para descansar.",
-      de: "Wechselt zwischen Grünanlagen und Strandpromenade, mit freier Zeit zum Ausruhen."
-    },
-    destino: {
-      pt: "Praia de Boa Viagem",
-      en: "Boa Viagem Beach",
-      es: "Playa de Boa Viagem",
-      de: "Strand von Boa Viagem"
-    },
-    subtituloDestino: {
-      pt: "Zona Sul - Praia",
-      en: "South Zone - Beach",
-      es: "Zona Sur - Playa",
-      de: "Südzone - Strand"
-    },
-    tags: [
-      { pt: "praia", en: "beach", es: "playa", de: "Strand" },
-      { pt: "natureza", en: "nature", es: "naturaleza", de: "Natur" },
-      { pt: "ambiente aberto", en: "outdoors", es: "al aire libre", de: "im Freien" }
-    ],
-    ingresso: {
-      pt: "A confirmar após a pesquisa",
-      en: "To be confirmed after research",
-      es: "Por confirmar tras la investigación",
-      de: "Nach der Recherche zu bestätigen"
-    },
-    notaIngresso: {
-      pt: "*Condições de acesso e serviços serão confirmados pelo grupo.",
-      en: "*Access conditions and services will be confirmed by the group.",
-      es: "*El grupo confirmará las condiciones de acceso y los servicios.",
-      de: "*Zugang und Dienstleistungen werden von der Gruppe bestätigt."
-    },
-    horarios: {
-      pt: "Informações de visita a confirmar após a pesquisa do grupo.",
-      en: "Visitor information to be confirmed after the group's research.",
-      es: "Información de visita por confirmar después de la investigación del grupo.",
-      de: "Besuchsinformationen werden nach der Recherche der Gruppe bestätigt."
-    },
-    paradas: ["Parque Dona Lindu", "Praia de Boa Viagem", "Parque das Esculturas"]
-  }
-];
-
-/* =====================================================
-   PERGUNTAS — EXEMPLOS PROVISÓRIOS
-   A pergunta 1 segue o texto mostrado no Figma revisado.
-   As demais ainda são exemplos e serão definidas pelo grupo.
+   PERGUNTAS DEFINITIVAS — 6 ETAPAS
    ===================================================== */
 const PERGUNTAS = [
   {
-    texto: {
-      pt: "Qual região de Recife?",
-      en: "Which area of Recife?",
-      es: "¿Qué zona de Recife?",
-      de: "Welche Gegend von Recife?"
-    },
-    subtitulo: {
-      pt: "Escolha onde será o seu passeio",
-      en: "Choose the area for your outing",
-      es: "Elige la zona para tu paseo",
-      de: "Wähle die Gegend für deinen Ausflug"
-    },
+    chave: "regiao",
+    texto: {pt:"Qual região do Recife?",en:"Which area of Recife?",es:"¿Qué zona de Recife?",de:"Welche Gegend von Recife?"},
+    subtitulo: {pt:"Escolha onde será o seu passeio.",en:"Choose the area for your outing.",es:"Elige dónde será tu paseo.",de:"Wähle das Gebiet für deinen Ausflug."},
     alternativas: [
-      { texto: { pt: "Zona Norte", en: "North Zone", es: "Zona Norte", de: "Nordzone" }, pontos: { arte: 2 } },
-      { texto: { pt: "Zona Sul", en: "South Zone", es: "Zona Sur", de: "Südzone" }, pontos: { natureza: 3 } },
-      { texto: { pt: "Centro Hist.", en: "Historic Center", es: "Centro Hist.", de: "Historisches Zentrum" }, pontos: { historico: 3 } },
-      { texto: { pt: "Alternativa", en: "Other", es: "Otra", de: "Andere" }, pontos: { historico: 1, arte: 1, natureza: 1 } }
+      {chave:"norte",texto:{pt:"Zona Norte",en:"North Zone",es:"Zona Norte",de:"Nordzone"}},
+      {chave:"sul",texto:{pt:"Zona Sul",en:"South Zone",es:"Zona Sur",de:"Südzone"}},
+      {chave:"centro",texto:{pt:"Centro Hist.",en:"Historic Center",es:"Centro Histórico",de:"Historisches Zentrum"}},
+      {chave:"oeste",texto:{pt:"Zona Oeste",en:"West Zone",es:"Zona Oeste",de:"Westzone"}}
     ]
   },
   {
-    texto: { pt: "Com quem você está passeando?", en: "Who are you sightseeing with?", es: "¿Con quién estás paseando?", de: "Mit wem bist du unterwegs?" },
+    chave: "companhia",
+    texto: {pt:"Quem vai com você?",en:"Who will be joining you?",es:"¿Quién irá contigo?",de:"Wer begleitet dich?"},
+    subtitulo: {pt:"Qual será o tamanho do grupo para o passeio?",en:"How large will your group be?",es:"¿De qué tamaño será el grupo?",de:"Wie groß wird deine Gruppe sein?"},
     alternativas: [
-      { texto: { pt: "Sozinho(a)", en: "Alone", es: "Solo(a)", de: "Allein" }, pontos: { historico: 1, arte: 1 } },
-      { texto: { pt: "Em família", en: "With family", es: "En familia", de: "Mit der Familie" }, pontos: { natureza: 2 } },
-      { texto: { pt: "Com amigos", en: "With friends", es: "Con amigos", de: "Mit Freunden" }, pontos: { historico: 1, natureza: 1 } },
-      { texto: { pt: "Em casal", en: "As a couple", es: "En pareja", de: "Als Paar" }, pontos: { arte: 2 } }
+      {chave:"sozinho",texto:{pt:"Sozinho(a)",en:"On my own",es:"Solo(a)",de:"Allein"}},
+      {chave:"casal",texto:{pt:"Em casal",en:"As a couple",es:"En pareja",de:"Als Paar"}},
+      {chave:"familia",texto:{pt:"Em família",en:"With family",es:"En familia",de:"Mit der Familie"}},
+      {chave:"amigos",texto:{pt:"Com amigos",en:"With friends",es:"Con amigos",de:"Mit Freunden"}}
     ]
   },
   {
-    texto: { pt: "Quanto tempo você tem?", en: "How much time do you have?", es: "¿Cuánto tiempo tienes?", de: "Wie viel Zeit hast du?" },
+    chave: "duracao",
+    texto: {pt:"Quanto tempo você tem?",en:"How much time do you have?",es:"¿Cuánto tiempo tienes?",de:"Wie viel Zeit hast du?"},
+    subtitulo: {pt:"Qual será a duração do passeio?",en:"How long would you like your outing to last?",es:"¿Cuánto durará el paseo?",de:"Wie lange soll dein Ausflug dauern?"},
     alternativas: [
-      { texto: { pt: "1 a 2 horas", en: "1 to 2 hours", es: "1 a 2 horas", de: "1 bis 2 Stunden" }, pontos: { historico: 2 } },
-      { texto: { pt: "Meio dia", en: "Half a day", es: "Medio día", de: "Einen halben Tag" }, pontos: { arte: 2 } },
-      { texto: { pt: "O dia todo", en: "The whole day", es: "Todo el día", de: "Den ganzen Tag" }, pontos: { natureza: 2 } },
-      { texto: { pt: "Ainda não sei", en: "Not sure yet", es: "Aún no lo sé", de: "Weiß ich noch nicht" }, pontos: { historico: 1 } }
+      {chave:"1-2",texto:{pt:"1 a 2 horas",en:"1 to 2 hours",es:"De 1 a 2 horas",de:"1 bis 2 Stunden"}},
+      {chave:"2-4",texto:{pt:"2 a 4 horas",en:"2 to 4 hours",es:"De 2 a 4 horas",de:"2 bis 4 Stunden"}},
+      {chave:"4-6",texto:{pt:"4 a 6 horas",en:"4 to 6 hours",es:"De 4 a 6 horas",de:"4 bis 6 Stunden"}},
+      {chave:"mais-6",texto:{pt:"Mais de 6 horas",en:"More than 6 hours",es:"Más de 6 horas",de:"Mehr als 6 Stunden"}}
     ]
   },
   {
-    texto: { pt: "Como prefere se deslocar?", en: "How do you prefer to get around?", es: "¿Cómo prefieres desplazarte?", de: "Wie möchtest du dich fortbewegen?" },
+    chave: "transporte",
+    texto: {pt:"Como prefere se deslocar?",en:"How do you prefer to get around?",es:"¿Cómo prefieres desplazarte?",de:"Wie möchtest du dich fortbewegen?"},
+    subtitulo: {pt:"Qual meio de transporte você usará para chegar ao destino?",en:"How will you travel to your destination?",es:"¿Qué medio de transporte usarás para llegar al destino?",de:"Welches Verkehrsmittel nutzt du für den Weg zum Ziel?"},
     alternativas: [
-      { texto: { pt: "A pé", en: "On foot", es: "A pie", de: "Zu Fuß" }, pontos: { historico: 2 } },
-      { texto: { pt: "De carro", en: "By car", es: "En coche", de: "Mit dem Auto" }, pontos: { arte: 2 } },
-      { texto: { pt: "Transporte público", en: "Public transport", es: "Transporte público", de: "Öffentliche Verkehrsmittel" }, pontos: { historico: 1, natureza: 1 } },
-      { texto: { pt: "De bicicleta", en: "By bike", es: "En bicicleta", de: "Mit dem Fahrrad" }, pontos: { natureza: 2 } }
+      {chave:"ape",texto:{pt:"A pé",en:"On foot",es:"A pie",de:"Zu Fuß"}},
+      {chave:"bicicleta",texto:{pt:"De bicicleta",en:"By bicycle",es:"En bicicleta",de:"Mit dem Fahrrad"}},
+      {chave:"carro",texto:{pt:"De carro",en:"By car",es:"En coche",de:"Mit dem Auto"}},
+      {chave:"publico",texto:{pt:"Transporte público",en:"Public transport",es:"Transporte público",de:"Mit öffentlichen Verkehrsmitteln"}}
     ]
   },
   {
-    texto: { pt: "Qual ambiente você prefere?", en: "Which setting do you prefer?", es: "¿Qué ambiente prefieres?", de: "Welche Umgebung bevorzugst du?" },
+    chave: "ambiente",
+    texto: {pt:"Qual ambiente você prefere?",en:"What kind of place do you prefer?",es:"¿Qué tipo de ambiente prefieres?",de:"Welche Umgebung bevorzugst du?"},
+    subtitulo: {pt:"O que você gostaria de explorar no passeio de hoje?",en:"What would you like to explore today?",es:"¿Qué te gustaría explorar hoy?",de:"Was möchtest du heute erkunden?"},
     alternativas: [
-      { texto: { pt: "Ruas históricas", en: "Historic streets", es: "Calles históricas", de: "Historische Straßen" }, pontos: { historico: 2 } },
-      { texto: { pt: "Museus", en: "Museums", es: "Museos", de: "Museen" }, pontos: { arte: 2 } },
-      { texto: { pt: "Parques", en: "Parks", es: "Parques", de: "Parks" }, pontos: { natureza: 2 } },
-      { texto: { pt: "Praia", en: "Beach", es: "Playa", de: "Strand" }, pontos: { natureza: 3 } }
+      {chave:"natureza",texto:{pt:"Parques ou praias",en:"Parks or beaches",es:"Parques o playas",de:"Parks oder Strände"}},
+      {chave:"ruas",texto:{pt:"Ruas históricas",en:"Historic streets",es:"Calles históricas",de:"Historische Straßen"}},
+      {chave:"museus",texto:{pt:"Museus ou galerias",en:"Museums or galleries",es:"Museos o galerías",de:"Museen oder Galerien"}},
+      {chave:"religioso",texto:{pt:"Santuários religiosos",en:"Religious sanctuaries",es:"Santuarios religiosos",de:"Religiöse Heiligtümer"}}
     ]
   },
   {
-    texto: { pt: "Quanto quer gastar?", en: "How much do you want to spend?", es: "¿Cuánto quieres gastar?", de: "Wie viel möchtest du ausgeben?" },
+    chave: "custo",
+    texto: {pt:"Quanto pretende gastar?",en:"How much do you plan to spend?",es:"¿Cuánto piensas gastar?",de:"Wie viel möchtest du ausgeben?"},
+    subtitulo: {pt:"Qual é o seu orçamento para o passeio de hoje?",en:"What is your budget for today’s outing?",es:"¿Cuál es tu presupuesto para el paseo de hoy?",de:"Wie hoch ist dein Budget für den heutigen Ausflug?"},
     alternativas: [
-      { texto: { pt: "Gratuito", en: "Free", es: "Gratis", de: "Kostenlos" }, pontos: { natureza: 2, historico: 1 } },
-      { texto: { pt: "Pouco", en: "A little", es: "Poco", de: "Wenig" }, pontos: { historico: 1, arte: 1 } },
-      { texto: { pt: "Moderado", en: "Moderate", es: "Moderado", de: "Moderat" }, pontos: { arte: 2 } },
-      { texto: { pt: "Tanto faz", en: "Doesn't matter", es: "Me da igual", de: "Egal" }, pontos: {} }
-    ]
-  },
-  {
-    texto: { pt: "Você precisa de acessibilidade?", en: "Do you need accessibility features?", es: "¿Necesitas accesibilidad?", de: "Brauchst du Barrierefreiheit?" },
-    alternativas: [
-      { texto: { pt: "Sim", en: "Yes", es: "Sí", de: "Ja" }, pontos: {}, acessibilidade: true },
-      { texto: { pt: "Não", en: "No", es: "No", de: "Nein" }, pontos: {} }
+      {chave:"gratis",texto:{pt:"Gratuito",en:"Free",es:"Gratis",de:"Kostenlos"}},
+      {chave:"economico",texto:{pt:"Econômico",en:"Budget-friendly",es:"Económico",de:"Preiswert"}},
+      {chave:"moderado",texto:{pt:"Moderado",en:"Moderate",es:"Moderado",de:"Mittel"}},
+      {chave:"tanto-faz",texto:{pt:"Tanto faz",en:"No preference",es:"Me da igual",de:"Egal"}}
     ]
   }
 ];
@@ -345,14 +153,14 @@ let indice = 0;
 let respostas = [];
 let timerInatividade;
 let ultimoRoteiro = "";
+let ultimoDestinoNome = "";
 let ultimoModo = "walking";
 
 const $ = (seletor) => document.querySelector(seletor);
 const telas = document.querySelectorAll(".tela");
 const tr = (chave) => (TEXTOS[idioma] && TEXTOS[idioma][chave]) ?? TEXTOS.pt[chave] ?? chave;
 const txt = (valor) => (typeof valor === "string" ? valor : (valor?.[idioma] ?? valor?.pt ?? ""));
-const MODOS = ["walking", "driving", "transit", "bicycling"];
-const PERGUNTA_TRANSPORTE = 3; // pergunta 4, índice 3, é a de transporte.
+
 
 function irPara(id) {
   telas.forEach((tela) => tela.classList.toggle("ativa", tela.id === id));
@@ -389,9 +197,6 @@ function mostrarPergunta() {
   document.querySelectorAll("[data-alt]").forEach((botao) => {
     const alternativa = pergunta.alternativas[Number(botao.dataset.alt)];
     botao.textContent = alternativa ? txt(alternativa.texto) : "";
-    // Perguntas com menos de 4 opções (ex.: Sim/Não) escondem os botões sem uso.
-    botao.style.visibility = alternativa ? "visible" : "hidden";
-    botao.style.pointerEvents = alternativa ? "auto" : "none";
   });
 
   $("#quiz-voltar").textContent = tr(indice === 0 ? "voltarInicio" : "voltar");
@@ -417,41 +222,55 @@ function voltarPergunta() {
 }
 
 /* =====================================================
-   PONTUAÇÃO E SELEÇÃO DO ROTEIRO
+   PONTUAÇÃO E SELEÇÃO DO DESTINO
+   Pergunta 1: +3 para os destinos da região escolhida e -3 para os demais.
+   Perguntas 2 a 6: +2 para cada resposta “Melhor”, -1 para “Pior” e 0 para neutras.
+   Todos os 20 destinos continuam concorrendo à recomendação final.
    ===================================================== */
-function calcularVencedor() {
-  const total = Object.fromEntries(ROTEIROS.map((roteiro) => [roteiro.id, 0]));
-  respostas.forEach((numero, i) => {
-    const pontos = PERGUNTAS[i]?.alternativas[numero]?.pontos || {};
-    for (const id in pontos) {
-      if (Object.prototype.hasOwnProperty.call(total, id)) total[id] += pontos[id];
-    }
+const CRITERIOS = ["companhia", "duracao", "transporte", "ambiente", "custo"];
+const ZONAS_POR_RESPOSTA = ["Zona Norte", "Zona Sul", "Centro Hist.", "Zona Oeste"];
+const NOMES_ZONA = {
+  "Zona Norte": {pt:"Zona Norte",en:"North Zone",es:"Zona Norte",de:"Nordzone"},
+  "Zona Sul": {pt:"Zona Sul",en:"South Zone",es:"Zona Sur",de:"Südzone"},
+  "Zona Oeste": {pt:"Zona Oeste",en:"West Zone",es:"Zona Oeste",de:"Westzone"},
+  "Centro Hist.": {pt:"Centro Histórico",en:"Historic Center",es:"Centro Histórico",de:"Historisches Zentrum"}
+};
+
+function calcularPontuacoes() {
+  const zonaEscolhida = ZONAS_POR_RESPOSTA[respostas[0]];
+  const avaliacoes = DESTINOS.map((destino) => {
+    // A região influencia a pontuação, mas não elimina nenhum destino.
+    let pontos = destino.zona === zonaEscolhida ? 3 : -3;
+
+    // Mantém sem alteração a matriz Melhor/Pior das perguntas 2 a 6.
+    CRITERIOS.forEach((criterio, i) => {
+      const chave = PERGUNTAS[i + 1]?.alternativas[respostas[i + 1]]?.chave;
+      if (!chave || chave === "tanto-faz") return;
+      if (destino.melhor[criterio].includes(chave)) pontos += 2;
+      else if (destino.pior[criterio].includes(chave)) pontos -= 1;
+    });
+    return {destino, pontos};
   });
-  return ROTEIROS.reduce(
-    (melhor, roteiro) => (total[roteiro.id] > total[melhor.id] ? roteiro : melhor),
-    ROTEIROS[0]
-  );
+  const maiorPontuacao = Math.max(...avaliacoes.map((item) => item.pontos));
+  const empatados = avaliacoes.filter((item) => item.pontos === maiorPontuacao);
+  const vencedor = empatados[Math.floor(Math.random() * empatados.length)];
+  return {...vencedor, pontuacoes: avaliacoes, empate: empatados.length > 1};
 }
 
 /* =====================================================
    GOOGLE MAPS + QR CODE
    ===================================================== */
-const nomeParada = (parada) => (typeof parada === "string" ? parada : parada.nome);
-const localParada = (parada) => (typeof parada === "string" ? `${parada}, Recife - PE` : (parada.local || `${parada.nome}, Recife - PE`));
+// Ponto de partida fixo para a demonstração do protótipo.
+// Endereço confirmado na página oficial de infraestrutura da CESAR School.
+const ORIGEM_MAPS = "-8.0596986,-34.8724827";
 
-function montarLinkMaps(paradas, modo = "walking") {
-  const lugares = paradas.map(localParada);
-  if (!lugares.length) return "https://www.google.com/maps";
-
+function montarLinkMaps(destino, modo = "walking") {
   const params = new URLSearchParams({
     api: "1",
-    origin: lugares[0],
-    destination: lugares[lugares.length - 1],
+    origin: ORIGEM_MAPS,
+    destination: `${destino}, Recife - PE`,
     travelmode: modo
   });
-  if (lugares.length > 2) {
-    params.set("waypoints", lugares.slice(1, -1).slice(0, 9).join("|"));
-  }
   return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
 
@@ -478,53 +297,132 @@ function gerarQRCode(url) {
    RESULTADO — NOVO LAYOUT DO FIGMA
    ===================================================== */
 function mostrarResultado() {
-  const roteiro = calcularVencedor();
-  $("#res-titulo").textContent = txt(roteiro.destino || roteiro.nome);
-  $("#res-subtitulo").textContent = txt(roteiro.subtituloDestino || roteiro.tipo);
-  $("#res-ingresso").textContent = txt(roteiro.ingresso);
-  $("#res-aviso-ingresso").textContent = txt(roteiro.notaIngresso);
-  $("#res-horarios").textContent = txt(roteiro.horarios);
+  const resultado = calcularPontuacoes();
+  const destino = resultado.destino;
+  const zona = NOMES_ZONA[destino.zona]?.[idioma] ?? destino.zona;
+  const tagsDoIdioma = destino.tags[idioma] ?? destino.tags.pt;
+
+  $("#res-titulo").textContent = destino.nome;
+  $("#res-subtitulo").textContent = `${zona} · ${tagsDoIdioma[0]}`;
+  $("#res-descricao").textContent = destino.descricao[idioma] ?? destino.descricao.pt;
 
   const tags = $("#res-tags");
   tags.replaceChildren();
-  (roteiro.tags || []).forEach((tag) => {
+  tagsDoIdioma.slice(0, 3).forEach((tag) => {
     const elemento = document.createElement("span");
     elemento.className = "res-tag";
-    elemento.textContent = txt(tag);
+    elemento.textContent = tag;
     tags.appendChild(elemento);
   });
 
-  const modo = MODOS[respostas[PERGUNTA_TRANSPORTE]] || "walking";
-  ultimoRoteiro = roteiro.id;
-  ultimoModo = modo;
+  const chaveTransporte = PERGUNTAS[3].alternativas[respostas[3]]?.chave;
+  const modos = {ape:"walking", bicicleta:"bicycling", carro:"driving", publico:"transit"};
+  ultimoRoteiro = destino.id;
+  ultimoDestinoNome = destino.nome;
+  ultimoModo = modos[chaveTransporte] || "walking";
 
   irPara("tela-resultado");
-  gerarQRCode(montarLinkMaps(roteiro.paradas, modo));
+  gerarQRCode(montarLinkMaps(destino.nome, ultimoModo));
 }
 
 /* =====================================================
    FEEDBACK LOCAL
    Guarda as avaliações neste navegador; nenhum servidor é necessário.
    ===================================================== */
-function registrarFeedback(valor) {
-  const registro = {
-    data: new Date().toISOString(),
-    valor,
-    idioma,
-    roteiro: ultimoRoteiro,
-    transporte: ultimoModo,
-    respostas: respostas.map((numero) => numero + 1).join("")
-  };
+const ROTULOS_FEEDBACK = {
+  1: "Muito Insatisfeito(a)",
+  2: "Insatisfeito(a)",
+  3: "Satisfeito(a)",
+  4: "Muito Satisfeito(a)"
+};
 
+function lerFeedbacks() {
   try {
-    const lista = JSON.parse(localStorage.getItem("alo_feedback") || "[]");
-    lista.push(registro);
-    localStorage.setItem("alo_feedback", JSON.stringify(lista));
+    return JSON.parse(localStorage.getItem("alo_feedback") || "[]");
   } catch (erro) {
-    // A interface continua funcional mesmo se o navegador bloquear localStorage.
-    console.info("Feedback da demonstração:", registro);
+    console.warn("Não foi possível ler os feedbacks salvos.", erro);
+    return [];
   }
 }
+
+function registrarFeedbackLocal(registro) {
+  const lista = lerFeedbacks();
+  if (!lista.some((item) => item.id === registro.id)) lista.push(registro);
+  localStorage.setItem("alo_feedback", JSON.stringify(lista));
+}
+
+async function registrarFeedback(valor) {
+  const avaliacao = valor === "skip" ? null : Number(valor);
+  if (avaliacao !== null && !Object.prototype.hasOwnProperty.call(ROTULOS_FEEDBACK, avaliacao)) return;
+
+  const respostasRegistradas = PERGUNTAS.map((pergunta, i) => ({
+    pergunta: txt(pergunta.texto),
+    resposta: txt(pergunta.alternativas[respostas[i]]?.texto)
+  }));
+  const registro = {
+    id: globalThis.crypto?.randomUUID?.() || `alo-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    data: new Date().toISOString(),
+    valor: avaliacao,
+    avaliacao: avaliacao === null ? null : ROTULOS_FEEDBACK[avaliacao],
+    status: avaliacao === null ? "nao_avaliou" : "avaliado",
+    idioma,
+    destino: ultimoDestinoNome,
+    destinoId: ultimoRoteiro,
+    transporte: ultimoModo,
+    respostas: respostasRegistradas
+  };
+
+  // Tenta gravar no arquivo JSON do servidor Python. Se a aplicação estiver
+  // aberta por Live Server/file://, a cópia local do navegador continua valendo.
+  try {
+    const resposta = await fetch("/api/feedback", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(registro)
+    });
+    if (!resposta.ok) throw new Error(`Servidor respondeu ${resposta.status}`);
+  } catch (erro) {
+    console.info("Servidor de feedback indisponível; mantendo registro local.", erro);
+  }
+
+  try {
+    registrarFeedbackLocal(registro);
+  } catch (erro) {
+    console.warn("Não foi possível salvar a cópia local do feedback.", erro);
+  }
+  return registro;
+}
+
+async function obterTodosFeedbacks() {
+  const locais = lerFeedbacks();
+  try {
+    const resposta = await fetch("/api/feedback");
+    if (!resposta.ok) throw new Error(`Servidor respondeu ${resposta.status}`);
+    const remotos = await resposta.json();
+    const porId = new Map([...remotos, ...locais].map((item) => [item.id, item]));
+    return [...porId.values()].sort((a, b) => a.data.localeCompare(b.data));
+  } catch (erro) {
+    return locais;
+  }
+}
+
+async function exportarFeedbacks() {
+  const registros = await obterTodosFeedbacks();
+  const arquivo = new Blob([JSON.stringify(registros, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(arquivo);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `alo-recife-feedback-${new Date().toISOString().slice(0,10)}.json`;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// Consulta e exportação de avaliações pelo console do navegador.
+window.aloRecifeFeedback = {
+  ler: lerFeedbacks,
+  lerTudo: obterTodosFeedbacks,
+  exportar: exportarFeedbacks
+};
 
 /* =====================================================
    REINÍCIO E TEMPO DE INATIVIDADE
@@ -534,6 +432,7 @@ function reiniciar() {
   indice = 0;
   respostas = [];
   ultimoRoteiro = "";
+  ultimoDestinoNome = "";
   ultimoModo = "walking";
   aplicarIdioma();
   irPara("tela-inicial");
@@ -569,10 +468,27 @@ $("#quiz-voltar").addEventListener("click", voltarPergunta);
 $("#btn-encerrar").addEventListener("click", () => irPara("tela-feedback"));
 
 document.querySelectorAll("[data-feedback]").forEach((botao) => {
-  botao.addEventListener("click", () => {
-    registrarFeedback(botao.dataset.feedback);
-    reiniciar();
+  botao.addEventListener("click", async () => {
+    botao.disabled = true;
+    try {
+      await registrarFeedback(botao.dataset.feedback);
+    } finally {
+      reiniciar();
+    }
   });
+});
+
+// A animação move cada conjunto como uma peça: círculo + ligação física.
+document.querySelectorAll(".feedback-grupo").forEach((grupo) => {
+  const botao = grupo.querySelector("button");
+  botao.addEventListener("pointerdown", () => grupo.classList.add("pressionado"));
+  ["pointerup", "pointercancel", "pointerleave", "blur"].forEach((evento) => {
+    botao.addEventListener(evento, () => grupo.classList.remove("pressionado"));
+  });
+  botao.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter" || evento.key === " ") grupo.classList.add("pressionado");
+  });
+  botao.addEventListener("keyup", () => grupo.classList.remove("pressionado"));
 });
 
 ["pointerdown", "keydown"].forEach((evento) => {

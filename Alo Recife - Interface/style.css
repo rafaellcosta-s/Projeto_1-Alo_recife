@@ -1,20 +1,4 @@
-/* Stack Sans Headline extraída do arquivo compartilhado pelo grupo. */
-@font-face {
-  font-family: "Stack Sans Headline";
-  src: url("assets/fonts/StackSansHeadline.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 200 700;
-  font-display: swap;
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-@font-face {
-  font-family: "Stack Sans Headline";
-  src: url("assets/fonts/StackSansHeadline-extended.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 200 700;
-  font-display: swap;
-  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
+/* Fontes do sistema como fallback; a Stack Sans Headline pode ser instalada localmente pela equipe. */
 /* =====================================================
    TOKENS DO FIGMA
    ===================================================== */
@@ -31,9 +15,9 @@
   --bege: #B8AF9F; /* "Não avaliar": cor estimada pelo print, confirme o hex no Figma */
 
   /* Dá pra usar fontes diferentes em cada parte */
-  --fonte-titulo: "Stack Sans Headline", system-ui, sans-serif;
-  --fonte-texto: "Stack Sans Headline", system-ui, sans-serif;
-  --fonte-botao: "Stack Sans Headline", system-ui, sans-serif;
+  --fonte-titulo: "Stack Sans Headline", "Arial Narrow", system-ui, sans-serif;
+  --fonte-texto: "Stack Sans Headline", "Arial Narrow", system-ui, sans-serif;
+  --fonte-botao: "Stack Sans Headline", "Arial Narrow", system-ui, sans-serif;
 
   /* Proporção da tela do totem (largura / altura) */
   --proporcao: 0.6464;
@@ -169,6 +153,11 @@ body {
   cursor: pointer;
   box-shadow: 0 0.7cqw 0 var(--cor-escura);
   -webkit-tap-highlight-color: transparent;
+
+  /* "Afundar" com top (e não transform): o transform criaria uma nova camada
+     e as faixas, que ficam atrás do botão, passariam por cima dele. */
+  top: 0;
+  transition: top 70ms ease-out, box-shadow 70ms ease-out;
 }
 .btn-largo { width: 46cqw; font-size: 4cqw; }
 .btn-medio { width: 28cqw; font-size: 4cqw; }
@@ -180,7 +169,11 @@ body {
 .btn[data-cor="cinza"]    { --cor: var(--cinza); }
 .btn[data-cor="bege"]     { --cor: var(--bege); }
 
-.btn:active { transform: translateY(0.5cqw); box-shadow: 0 0.2cqw 0 var(--cor-escura); }
+/* Apertado: o botão desce 0.5cqw e a sombra diminui 0.5cqw (a base não se mexe).
+   As faixas descem junto e fazem a mesma conta, então afundam com o botão. */
+.btn:active { top: 0.5cqw; box-shadow: 0 0.2cqw 0 var(--cor-escura); }
+.btn:active::before,
+.btn:active::after { box-shadow: 0 0.2cqw 0 var(--cor-escura); }
 .btn:focus-visible { outline: 0.6cqw solid var(--texto); outline-offset: 0.6cqw; }
 
 /* A faixa colorida: sai do botão até a borda da tela */
@@ -191,7 +184,8 @@ body {
   height: 2.2cqw;
   transform: translateY(-50%);
   background: var(--cor);
-  box-shadow: 0 0.5cqw 0 var(--cor-escura);
+  box-shadow: 0 0.7cqw 0 var(--cor-escura);
+  transition: box-shadow 70ms ease-out;
   z-index: -1;
   pointer-events: none;
 }
@@ -301,11 +295,13 @@ body {
   display: none;
 }
 
-#tela-quiz {
+#tela-quiz,
+#tela-idioma {
   position: relative;
 }
 
-#tela-quiz .botoes-base {
+#tela-quiz .botoes-base,
+#tela-idioma .botoes-base {
   position: absolute;
   inset: 0;
   margin: 0;
@@ -313,31 +309,38 @@ body {
   gap: 0;
 }
 
-#tela-quiz .botoes-base .linha {
+#tela-quiz .botoes-base .linha,
+#tela-idioma .botoes-base .linha {
   position: absolute;
   left: 0;
   right: 0;
 }
 
 /* Centros aproximados das zonas físicas: 50%, 67% e 85% da altura. */
-#tela-quiz .botoes-base .linha:nth-child(1) { top: 44.5%; }
-#tela-quiz .botoes-base .linha:nth-child(2) { top: 63%; }
-#tela-quiz .botoes-base .linha:nth-child(3) { top: 82%; }
+#tela-quiz .botoes-base .linha:nth-child(1),
+#tela-idioma .botoes-base .linha:nth-child(1) { top: 44.5%; }
+#tela-quiz .botoes-base .linha:nth-child(2),
+#tela-idioma .botoes-base .linha:nth-child(2) { top: 63%; }
+#tela-quiz .botoes-base .linha:nth-child(3),
+#tela-idioma .botoes-base .linha:nth-child(3) { top: 82%; }
 
-#tela-quiz .linha.dupla {
+#tela-quiz .linha.dupla,
+#tela-idioma .linha.dupla {
   justify-content: space-between;
   gap: 4cqw;
   padding-inline: 8cqw;
 }
 
-#tela-quiz .linha.dupla .btn {
+#tela-quiz .linha.dupla .btn,
+#tela-idioma .linha.dupla .btn {
   width: 40cqw;
   min-height: 15.8cqw;
   padding: 2cqw 2.5cqw;
   font-size: 4.2cqw;
 }
 
-#tela-quiz #quiz-voltar {
+#tela-quiz #quiz-voltar,
+#tela-idioma #idioma-voltar {
   width: 69cqw;
   min-height: 15.8cqw;
   font-size: 4.2cqw;
@@ -345,7 +348,9 @@ body {
 
 /* As faixas das alternativas acompanham a linha central dos botões. */
 #tela-quiz .btn::before,
-#tela-quiz .btn::after {
+#tela-quiz .btn::after,
+#tela-idioma .btn::before,
+#tela-idioma .btn::after {
   height: 4.6cqw;
 }
 
@@ -578,4 +583,265 @@ body {
 #tela-inicial .btn::before,
 #tela-inicial .btn::after {
   height: 4.6cqw;
+}
+
+
+/* =====================================================
+   FEEDBACK — círculos 1 a 4 + "Não avaliar"
+   Cada botão tem uma ligação até o botão físico da lateral.
+   Tudo parte das mesmas três linhas do restante do app.
+   ===================================================== */
+:root {
+  /* Centros das 3 linhas de botões físicos (iguais às telas de perguntas e idiomas) */
+  --y-linha-1: calc(44.5% + 7.9cqw);
+  --y-linha-2: calc(63% + 7.9cqw);
+  --y-linha-3: calc(82% + 7.9cqw);
+
+  --fb-esp: 4.6cqw;         /* espessura das ligações (igual às faixas dos outros botões) */
+  --fb-diametro: 16.5cqw;
+  --fb-raio-curva: 9cqw;    /* arredondado das quinas */
+  --fb-prof: 0.7cqw;        /* sombra do botão em repouso */
+  --fb-prof-press: 0.2cqw;  /* sombra do botão apertado */
+  --fb-afunda: 0.5cqw;      /* quanto o conjunto desce ao apertar */
+  --fb-sombra: rgba(0, 0, 0, .18);
+}
+
+#tela-feedback { position: relative; overflow: hidden; }
+#tela-feedback .logo { width: 27cqw; margin-top: 4.5cqw; margin-bottom: 0; z-index: 2; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.feedback-area { position: absolute; inset: 0; pointer-events: none; }
+
+/* Cada grupo = círculo + ligação. Desce junto ao apertar (classe .pressionado, no script.js). */
+.feedback-grupo {
+  --cor: var(--cinza);
+  --x: 50%;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 70ms ease-out;
+  will-change: transform;
+}
+.feedback-grupo-1 { --cor: var(--vermelho); --x: 16.8%; }
+.feedback-grupo-2 { --cor: var(--laranja);  --x: 39%; }
+.feedback-grupo-3 { --cor: var(--verde);    --x: 61%; }
+.feedback-grupo-4 { --cor: var(--azul);     --x: 83.2%; }
+.feedback-grupo-pular { z-index: 3; }
+
+/* Círculos */
+.feedback-botao {
+  position: absolute;
+  top: var(--y-linha-1);
+  left: var(--x);
+  width: var(--fb-diametro);
+  height: var(--fb-diametro);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cor);
+  color: #fff;
+  font-family: var(--fonte-botao);
+  font-size: 5.8cqw;
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 var(--fb-prof) 0 var(--fb-sombra);
+  transition: box-shadow 70ms ease-out;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Botão "Não avaliar" (mesmo tamanho do "Voltar" das outras telas) */
+.feedback-pular {
+  position: absolute;
+  top: var(--y-linha-3);
+  left: 50%;
+  width: 69cqw;
+  min-height: 15.8cqw;
+  padding: 2cqw 4cqw;
+  border: 0;
+  border-radius: 99cqw;
+  background: var(--cor);
+  color: #fff;
+  font-family: var(--fonte-botao);
+  font-size: 4.2cqw;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 var(--fb-prof) 0 var(--fb-sombra);
+  transition: box-shadow 70ms ease-out;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.feedback-botao:focus-visible,
+.feedback-pular:focus-visible { outline: 0.6cqw solid #292929; outline-offset: 0.8cqw; }
+
+/* Ligações: ficam ATRÁS do círculo e vão até o CENTRO dele, então sempre encostam */
+.feedback-conexao {
+  position: absolute;
+  display: block;
+  background: var(--cor);
+  box-shadow: 0 var(--fb-prof) 0 var(--fb-sombra);
+  transition: box-shadow 70ms ease-out;
+  pointer-events: none;
+}
+
+/* Linhas retas: 1 (esquerda), 4 (direita) e "Não avaliar" (dos dois lados) */
+.feedback-conexao-esquerda,
+.feedback-conexao-direita,
+.feedback-conexao-pular {
+  top: var(--y-linha-1);
+  height: var(--fb-esp);
+  transform: translateY(-50%);
+}
+.feedback-conexao-esquerda { left: 0; width: var(--x); }
+.feedback-conexao-direita  { left: var(--x); right: 0; }
+.feedback-conexao-pular    { top: var(--y-linha-3); left: 0; right: 0; }
+
+/* Ligações em "L" (2 e 3): descem do círculo e viram para a lateral numa única peça,
+   com a quina arredondada, então não há emendas nem desalinhamento. */
+.feedback-conexao-l {
+  top: var(--y-linha-1);
+  height: calc(var(--y-linha-2) - var(--y-linha-1) + var(--fb-esp) / 2);
+  background: transparent;
+  border: 0 solid var(--cor);
+  border-bottom-width: var(--fb-esp);
+}
+.feedback-conexao-l-esq {
+  left: 0;
+  width: calc(var(--x) + var(--fb-esp) / 2);
+  border-right-width: var(--fb-esp);
+  border-bottom-right-radius: var(--fb-raio-curva);
+}
+.feedback-conexao-l-dir {
+  left: calc(var(--x) - var(--fb-esp) / 2);
+  right: 0;
+  border-left-width: var(--fb-esp);
+  border-bottom-left-radius: var(--fb-raio-curva);
+}
+
+/* Apertado: o conjunto desce e todas as sombras diminuem o mesmo tanto (a base não se mexe) */
+.feedback-grupo.pressionado { transform: translateY(var(--fb-afunda)); }
+.feedback-grupo.pressionado .feedback-botao,
+.feedback-grupo.pressionado .feedback-pular,
+.feedback-grupo.pressionado .feedback-conexao { box-shadow: 0 var(--fb-prof-press) 0 var(--fb-sombra); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn::before, .btn::after,
+  .feedback-grupo, .feedback-botao, .feedback-pular, .feedback-conexao { transition: none; }
+}
+
+/* Descrição do destino no espaço que antes era reservado para dados ainda não confirmados. */
+.res-descricao-titulo { margin-top:2.2cqw; color:#707070; font-size:3.7cqw; font-weight:700; line-height:1.15; }
+.res-descricao-caixa { display:flex; align-items:center; justify-content:center; width:100%; min-height:33.5cqw; margin-top:2.1cqw; padding:3.2cqw 4cqw; border-radius:2.2cqw; background:#e9e9e9; color:#6d6d6d; text-align:center; }
+.res-descricao-caixa p { max-width:94%; font-size:3.0cqw; line-height:1.35; font-weight:600; }
+
+
+/* =====================================================
+   AJUSTES FINAIS — SOBRE NÓS, INÍCIO E FEEDBACK
+   ===================================================== */
+
+/* O subtítulo da página inicial segue a mesma tipografia e proporção
+   do título central exibido na seleção de idioma. */
+#tela-inicial .tagline {
+  font-family: var(--fonte-titulo);
+  font-size: 4.6cqw;
+  line-height: 1.2;
+  font-weight: 700;
+  text-align: center;
+  margin: 4cqw 0 8cqw;
+}
+
+/* Página Sobre Nós: conteúdo rolável e espaço explícito para a foto. */
+#tela-sobre {
+  position: relative;
+  overflow: hidden;
+}
+
+#tela-sobre .sobre-corpo {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-bottom: 25cqw;
+}
+
+#tela-sobre .sobre-corpo::-webkit-scrollbar { display: none; }
+#tela-sobre .sobre-corpo > .logo { margin-bottom: 0; }
+
+#tela-sobre .texto-sobre {
+  margin-top: 3cqw;
+  display: grid;
+  gap: 2.2cqw;
+  font-size: 2.35cqw;
+  line-height: 1.38;
+  font-weight: 500;
+}
+
+.equipe-foto {
+  width: 100%;
+  height: 25cqw;
+  min-height: 150px;
+  margin: 2.5cqw 0 3cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.35cqw dashed #bcbcbc;
+  border-radius: 2.2cqw;
+  background: #f4f4f4;
+  color: #858585;
+  font-size: 2.4cqw;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Botão de retorno igual ao da tela de idiomas e na mesma fileira física. */
+#tela-sobre .sobre-botoes {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  pointer-events: none;
+}
+
+#tela-sobre .sobre-botoes .linha {
+  position: absolute;
+  top: 82%;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
+}
+
+#tela-sobre #sobre-voltar {
+  width: 69cqw;
+  min-height: 15.8cqw;
+  font-size: 4.2cqw;
+}
+
+#tela-sobre .sobre-botoes .btn::before,
+#tela-sobre .sobre-botoes .btn::after {
+  height: 4.6cqw;
+}
+
+/* Instrução de avaliação, com a família, peso e cor dos títulos do questionário.
+   O tamanho é ligeiramente ajustado para acomodar a frase completa. */
+#tela-feedback .feedback-titulo {
+  flex: 0 0 auto;
+  margin-top: 2.4cqw;
+  margin-bottom: 0;
+  color: #3b3b40;
+  font-family: var(--fonte-titulo);
+  font-size: 5.8cqw;
+  line-height: 1.12;
+  font-weight: 700;
+  max-width: 88cqw;
+}
+
+@media (max-width: 700px) {
+  #tela-sobre .texto-sobre { font-size: 2.8cqw; }
+  #tela-feedback .feedback-titulo { font-size: 5.6cqw; }
 }
